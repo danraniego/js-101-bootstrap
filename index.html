@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JS 101</title>
+    </head>
+    <body>
+        <h4>
+            <span>ID Number: </span> 
+            <span id="id-number-display"></span>
+        </h4>
+        <h4>
+            <span>Name: </span> 
+            <span id="name-display"></span>
+        </h4>
+        <h4>
+            <span>Course: </span> 
+            <span id="course-display"></span>
+        </h4>
+        <h4>
+            <span>Section: </span> 
+            <span id="section-display"></span>
+        </h4>
+
+        <hr>
+        <form onsubmit="onSubmit()">
+            
+            <label for="id-number">ID Number</label>
+            <input type="text" id="id-number" onkeyup="typingIdNumber()">
+
+            <br><br>
+            <label for="name">Name</label>
+            <input type="text" id="name">
+
+            <br><br>
+            <label for="course">Course</label>
+            <input type="text" id="course">
+
+            <br><br>
+            <label for="section">Yr & Section</label>
+            <input type="text" id="section">
+
+            <br><br>
+            <button>
+                Submit
+            </button>
+        </form>
+        <script>
+            function typingIdNumber() {
+                var idNumber = document.getElementById('id-number').value;
+                
+                document.getElementById('id-number-display').innerText = idNumber;
+            }
+
+            function onSubmit() {
+                window.event.preventDefault();
+
+                /// Set all student properties
+                var student = {
+                    idNumber: document.getElementById('id-number').value,
+                    name: document.getElementById('name').value,
+                    course: document.getElementById('course').value,
+                    section: document.getElementById('section').value
+                };
+
+                document.getElementById('id-number-display').innerText = student.idNumber;
+                document.getElementById('name-display').innerText = student.name;
+                document.getElementById('course-display').innerText = student.course;
+                document.getElementById('section-display').innerText = student.section;
+            }
+        </script>
+    </body>
+</html>
